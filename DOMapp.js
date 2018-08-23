@@ -17,28 +17,32 @@ const clearBtn = document.querySelector(".clear-tasks");
 const filter = document.querySelector("#filter");
 const taskInput = document.querySelector("#task");
 
-loadEventListeners();
+// Load all event listeners
 
-function loadEventListeners(){
-	form.addEventListener("submit", addTask);
-}
+loadEventListener();
+
+// Load all event listeners
+form.eventListener("submit", addTask);
 
 function addTask(e){
 
-e.preventDefault();
+	if(taskInput.value === " "){
+		alert("Please Enter a task")
 
-if(taskInput.value === " "){
-	alert("You must enter a task");
+	}
 
+	// Create an li
+	const li = document.createElement("li");
+
+	// Create an li class
+	li.className = 'collection-item';
+
+	// Create Text node for li
+	li.appendChild(document.createTextNode(taskInput.value));
+
+	// Create link
+	const link = document.createElement("a");
+
+
+	e.preventDefault();
 }
-
-// Create Li Element
-const li = documument.createElement("li");
-li.className = 'collection-item';
-
-// Create Text Node
-li.appendChild(document.createTextNode(taskInput.value))
-
-}
-
-// 
